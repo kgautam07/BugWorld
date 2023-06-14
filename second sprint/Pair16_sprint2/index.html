@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bug World</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/board-layout.css">
+</head>
+<body>
+    <div id="startPage" class="page">
+        <div class="center">
+            <h1>Welcome to the Bug World!</h1>
+        </div>
+        <div class="center">
+            <button onclick="pageSwitch('startPage','selectPage')"class="button">Start!</button>
+        </div>
+    </div>
+    <div id="selectPage" style ="display:none;">
+        <div class="center">
+            <h1>Bug World</h1>
+        </div>
+        <div class="center">
+            <table class="optionsMenu">
+                <tr>
+                    <td>Please upload a world map file:</p></td>
+                    <td><input type="file" id="mapUpload" name="mapFile" accept=".txt"></td>
+                </tr>
+                <tr>
+                    <td>Please upload a bug assembler source code file #1</p></td>
+                    <td><input type="file" id="sourceUpload1" name="bugSource1" accept=".txt"></td>
+                </tr>
+                <tr>
+                    <td>lease upload a bug assembler source code file #2</p></td>
+                    <td><input type="file" id="sourceUpload1" name="bugSource2" accept=".txt"></td>
+                </tr>
+                <tr>
+                    <td><p>Please select the number of iterations</p></td>
+                    <td><input type="number" id="iteration" name="iteration" value='42'
+                        min="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Do you want to log the results of the session?</p></td>
+                    <td><input type="checkbox" onclick ="logSession(this)"> </td>
+                </tr>
+            </table>
+            <button type="submit" id="submitButton" class="load button">Next</button>
+        </div>
+    </div>
+    <div id="optionPage"style ="display:none;">
+        <div class="center">
+            <h1>Options</h1>
+        </div>
+        <div class="center">
+            <table class="optionsMenu">
+                <tr>
+                    <td><p id="changeColor1">Change bugs' color #1: </p></td>
+                    <td><input type="color" id="color1" value ="#FF0000"></td>
+                </tr>
+                <tr>
+                    <td><p id="changeColor2">Change bugs' color #2: </p></td>
+                    <td><input type="color" id="color2" value = "#000000"></td>
+                </tr>
+                <tr>
+                    <td><p>Please select the number of iterations</p></td>
+                    <td><input type="number" id="iteration" name="iteration" value='42'
+                        min="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>The duration of a tick in seconds: </p></td>
+                    <td><select id="noOfTicks">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </td>
+                </tr>
+            </table>
+            <button onclick="pageSwitch('optionPage','mainPage')"class="button">Back</button>
+        </div>
+    </div>
+    </div>
+    <div id="mainPage"style ="display:none;">
+        <div class="center">
+        <div class="foo">
+            <div id="bugDisplayBoard"><!-- board-layout.css -->
+                <div id="bugDisplayTextBoard"><!-- board-layout-text.js --></div>
+                <canvas id="bugDisplayHexBoard"><!-- board-layout-hexes.js --></canvas>
+            </div>
+            <div class="menu">
+                <table>
+                    <tr>
+                        <td><button onclick="pageSwitch('mainPage','optionPage')"class="button">Options</button></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="pageSwitch('mainPage','quitPage')"class="button">Quit</button></td>
+                    </tr>
+                </table>
+                <p id="iterationCount">Iterations: </p>
+                <p id="undetected">Amount of Undected food: </p>
+                <p id="redRemaining">Red bugs remaining: </p>
+                <p id="redKilled">Red bugs killed: </p>
+                <p id="redFood">Food brought home for red bugs: </p>
+                <p id="blackRemaining">Black bugs remaining: </p>
+                <p id="blackKilled">Black bugs killed: </p>
+                <p id="blackFood">Food brought home for black bugs: </p>
+            </div>           
+        </div>    
+        </div>
+        <div class="center">
+
+            <button onclick="pageSwitch('mainPage','logPage')"class="button" id="log">Log will be here</button>
+        </div>
+    </div>
+    </div>
+    <div id="quitPage"style ="display:none;">
+        <div class="center">
+            <h1>Do you really want to quit?</h1>
+        </div>
+        <div class="center">
+            <button onclick="pageSwitch('quitPage','startPage')"class="button">Yes</button>
+            <button onclick="pageSwitch('quitPage','mainPage')" class="button">No</button>
+        </div>
+    </div>
+    </div>
+    <div id="endPage"style ="display:none;">
+        <div class="center">
+            <h1>End of The game</h1>
+        </div>
+        <div class="center">
+            <button onclick="pageSwitch('endPage','startPage')"class="button">Restart</button>
+        </div>
+    </div>
+    </div>
+    <script type="module" src="assets/js/index.js"></script>
+    <script type="module" src="assets/js/assembler/worldtest.js"></script>
+    <script  type="module" src="assets/js/assembler/assemblertest.js"></script>
+    <script>
+        //define hexmap dimensions using sessionStorage, accessible in all functions.
+        sessionStorage.setItem("xlen", "10")
+        sessionStorage.setItem("ylen", "10")
+    </script>
+
+    <script src="assets/js/page-control.js"></script>
+    <script src="assets/js/board-layout-text.js"></script>
+    <script src="assets/js/board-layout-hexes.js"></script>
+    <script type="module" src="assets/js/logicEngine.js"></script>
+    <script type="module" src="assets/js/error/error.js"></script>
+
+</body>
+</html>

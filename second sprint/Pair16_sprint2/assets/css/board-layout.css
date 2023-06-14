@@ -1,0 +1,45 @@
+/* all values in this file are placeholders prone to change, see board-layout-hexes.js and board-layout-text.js */
+
+/*gameboard displays*/
+#bugDisplayBoard {
+    position: relative;
+    flex: 0 0 auto;
+    margin: 10px;
+    /*These values determine the hexmap size!*/
+    width: 680px;
+    height: 640px; 
+    border: 3px solid grey;
+
+}
+
+#bugDisplayTextBoard
+{
+    position: relative;
+}
+
+#bugDisplayHexBoard {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.bugDisplayTextBoardTiles
+{
+    float: left;
+    /*for debugging purposes: enable this to show squares*
+    box-sizing: border-box;
+    border: 1px solid black;/**/
+}
+
+.square {
+    float:left;
+}
+
+/*uses svg to make tiny text fit*/
+.squareText {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    
+}

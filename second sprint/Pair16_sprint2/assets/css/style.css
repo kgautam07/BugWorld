@@ -1,0 +1,60 @@
+html,
+body {
+	margin: 0px;
+	height: 100%;
+	font-size: 25px;
+}
+
+.page {
+	background: white;
+	height: 100%;
+}
+
+h1 {
+	text-align:center;
+}
+p {
+	color:grey;
+}
+table {
+	width:100%;
+	table-layout: fixed;
+
+}
+.button {
+	border-style:solid;
+	background-color: white;
+	text-align:center;
+	padding:15px 150px;
+	margin: 10px 10px;
+	font-size: 30px;
+	width: 50%;
+}
+.menu {
+	width : 30%;
+}
+.button:hover {
+	background-color: lightgrey;
+}
+
+.center {
+	text-align:center;
+}
+
+.foo {
+	margin:10px;
+	display:inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu {
+	margin: 20px;
+	z-index: 9;
+	display:table;
+	text-align: left;
+}
+
+.input {
+	color: darkgrey;
+}
