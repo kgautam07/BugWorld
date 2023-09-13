@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bug World</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+    <script src="https://unpkg.com/chai@4.1.2/chai.js"></script>
+  </head>
+  
+  <body>
+    <!-- Starting div -->
+    <div id="starting-div" class="box">
+      <p>Welcome To Bug World</p>
+      <button id="startButton">Click here to start!</button>
+    </div>
+
+    <!-- Upload div -->
+    <div id="upload-div" class="hidden">
+      <form method="post" enctype="multipart/form-data">
+        <label for="mapfile">
+          Choose Map File: <i class="fa fa-fw fa-upload"></i>
+        </label>
+        <input
+          type="file"
+          name="mapfile"
+          id="mapfile"
+          style="display: none"
+        />
+        <span id="mapfileName"></span>
+        <br />
+
+        <label for="rbfile"
+          >Choose Red Bug File : <i class="fa fa-fw fa-upload"></i>
+        </label>
+        <input
+          type="file"
+          name="rbfile"
+          id="rbfile"
+          style="display: none"
+          onchange="updateFileName('rbfile', 'rbfileName')"
+        />
+        <span id="rbfileName"></span>
+        <br />
+
+        <label for="bbfile"
+          >Choose Black Bug File : <i class="fa fa-fw fa-upload"></i>
+        </label>
+        <input
+          type="file"
+          name="bbfile"
+          id="bbfile"
+          style="display: none"
+        />
+        <span id="bbfileName"></span>
+        <br />
+        
+        <label for="iterations">Number of Iterations: </label>
+        <input
+          type="number"
+          name="iterations"
+          id="iterations"
+          min="1"
+          step="1"
+        />
+        <br />
+
+        <label for="log">Do you want to log the results of the session?</label>
+        <input type="checkbox" name="log" id="log" /><br /> <!-- Shows logs on Main div -->
+
+        <input id="uploadButton" type="submit" value="Upload"/>
+      </form>
+    </div>
+
+    
+    <!-- Main div -->
+    <div id="main-div" class="hidden">
+      <div class="displayRow">
+        <div style="width: 75%; float: left;">
+          <canvas id="map"></canvas>
+        </div>
+        <div class="display-info">
+          <button id="optionsButton">Options</button><br />
+          <button id="quitButton">Quit</button><br />
+
+          <label for="iterationNum">Iterations: </label>
+          <pre id="iterationNum"></pre>
+          <br />
+          
+          <label for="availbleFood">Amount of undetected food: </label>
+          <pre id="availableFood"></pre>
+          <br />
+          
+          <label for="rbugsRemaining"> Red Bugs Remaining: </label>
+          <pre id="rbugsRemaining"></pre>
+          <br />
+          
+          <label for="rbugsKilled"> Red Bugs Killed: </label>
+          <pre id="rbugsKilled"></pre>
+          <br />
+          
+          <label for="rbugsFood"> Food Brought Home By The Red Bugs: </label>
+          <pre id="rbugsFood"></pre>
+          <br />
+          
+          <label for="bbugsRemaining"> Black Bugs Remaining: </label>
+          <pre id="bbugsRemaining"></pre>
+          <br />
+          
+          <label for="bbugsKilled"> Black Bugs Killed: </label>
+          <pre id="bbugsKilled"></pre>
+          <br />
+          
+          <label for="bbugsFood"> Food Brought Home By The Black Bugs: </label>
+          <pre id="bugsFood"></pre>
+          <br />
+        </div>
+      </div>
+
+      
+      <!-- Logs div -->
+      <div id="logs-div" class="logs">
+        <label for="logs"> Logs will be here </label>
+        <pre id="logs"></pre>
+        <br />
+      </div>
+    </div>
+    
+    <!-- Options div -->
+    <div id="options-div" class="hidden">
+      <h2>Options</h2>
+      <br />
+      <!-- We did not think that switching the colors of the whole team of bug's
+        was a necessary option as there is no point in having all black or all red bugs. We 
+        also thought about adding a 'swap colors button' instead but switching the colors of both bug 
+        teams seems kind of pointless since the only thing that changes in the simulation is 
+        the winning color. -->
+        <label for="iterations"> Number of Iterations: </label>
+        <input
+        type="number"
+        name="iterations"
+        id="iterations"
+        min="1"
+        step="1"
+        /><br />
+        
+      <label for="tickTimeS"> Duration of a tick in seconds: </label>
+      <input
+        type="number"
+        name="tickTimeS"
+        id="tickTimeS"
+        min="1"
+        step="1"
+        /><br />
+        
+        <button id="continueButton">Continue with Changes</button>
+      </div>
+      
+      <!-- Ending div -->
+      <div id="ending-div" class="hidden">
+        <p>End of the game</p>
+        <button id="restartButton">Restart</button>
+      </div>
+
+      <script type="module" src="GUI/page.js"></script>
+    </body>
+    </html>
+    

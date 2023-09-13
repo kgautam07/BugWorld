@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+    <script src="https://unpkg.com/chai@4.1.2/chai.js"></script>
+</head>
+
+<body>
+    <h1>Testscases</h1>
+    click on ticks to see code: 
+    <div id="mocha"></div>
+    <script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
+
+    <script>mocha.setup('bdd')</script>
+    <script type="module" src="./test.js"></script>
+    <script type = "module">
+        mocha.checkLeaks();
+        mocha.run();
+    </script>
+</body>

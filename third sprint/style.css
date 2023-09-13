@@ -1,0 +1,82 @@
+.hidden {
+  display: none;
+}
+
+.box {
+  min-width: 990px;
+  min-height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 6px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  padding: 20px 20px;
+}
+
+.box p {
+  margin: 0;
+}
+
+.box button {
+  margin-top: 20px;
+  font-size: large;
+  background-color: white;
+  border:  3px solid lightgray;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.displayRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.display-game {
+  margin-left: 20px;
+  min-width: 600px;
+  min-height: 500px;
+  height: auto;
+  background-color: white;
+  border: 4px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+}
+
+.display-info {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: medium;
+}
+
+.display-info button {
+  margin-top: 20px;
+  width: 100%;
+  font-size: large;
+  background-color: white;
+  border: 3px solid lightgray;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+  font-size: large;
+  background-color: white;
+  border:  3px solid lightgray;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.logs{
+  padding: 20px 0px;
+  width: 90%;
+  border: 4px solid lightgray;
+}
